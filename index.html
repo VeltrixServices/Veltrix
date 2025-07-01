@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veltrix - HWID Spoofer</title>
     <style>
         * {
@@ -32,15 +32,9 @@
         }
 
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .background::before {
@@ -50,17 +44,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(0, 144, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(0, 144, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(0, 144, 255, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 80%, rgba(0, 144, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 144, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(0, 144, 255, 0.05) 0%, transparent 50%);
             animation: pulse 4s ease-in-out infinite alternate;
         }
 
         @keyframes pulse {
-            0% {
-                opacity: 0.5;
-            }
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         .particles {
@@ -144,12 +136,8 @@
         }
 
         @keyframes glow {
-            0% {
-                box-shadow: 0 0 20px rgba(0, 144, 255, 0.3);
-            }
-            100% {
-                box-shadow: 0 0 30px rgba(0, 144, 255, 0.6);
-            }
+            0% { box-shadow: 0 0 20px rgba(0, 144, 255, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(0, 144, 255, 0.6); }
         }
 
         .nav-links {
@@ -573,219 +561,225 @@
             text-shadow: 0 0 10px rgba(0, 144, 255, 0.5);
         }
 
-        .buy-btn {
-            background: linear-gradient(135deg, #0090ff, #00ccff);
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 144, 255, 0.4);
-            text-decoration: none;
-            display: inline-block;
-        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
 
-        .buy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 144, 255, 0.5);
-        }
+            .navbar {
+                padding: 15px 20px;
+            }
 
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 30px 50px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid rgba(0, 144, 255, 0.1);
-        }
+            .nav-links {
+                display: none;
+            }
 
-        /* Responsive */
-        @media (max-width: 992px) {
             .home-content {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 40px;
+                text-align: center;
             }
-            .container {
-                padding: 0 30px;
-            }
-            .navbar {
-                padding: 15px 30px;
-            }
-        }
 
-        @media (max-width: 480px) {
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
-            .section-title {
-                font-size: 2.2rem;
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
+
             .pricing-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+            }
+
+            .pricing-card.popular {
+                transform: none;
             }
         }
     </style>
+    <script src="https://cdn.sell.app/embed/script.js" defer></script>
 </head>
 <body>
     <div class="background">
-        <div class="particles" aria-hidden="true"></div>
+        <div class="particles" id="particles"></div>
     </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon">S</div>
-                SecureWare
+                <div class="logo-icon">⚡</div>
+                Veltrix
             </div>
             <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#purchase">Purchase</a></li>
-                <li>
-                    <a
-                        href="https://discord.gg/SXp5HwzwYT"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="discord-btn"
-                    >Discord</a>
-                </li>
+                <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-section="purchase">Purchase</a></li>
             </ul>
+            <a href="https://discord.gg/SXp5HwzwYT" target="_blank" rel="noopener noreferrer" class="discord-btn">Discord</a>
         </div>
     </nav>
 
-    <main class="container">
+    <div class="container">
         <!-- Home Section -->
         <section id="home" class="section">
             <div class="home-content">
                 <div class="hero-text">
-                    <div class="badge">FREE HWID SPOOFER</div>
-                    <h1 class="hero-title">SecureWare Spoofer</h1>
-                    <p class="hero-subtitle">
-                        Bypass bans effortlessly with our next-gen HWID spoofer. Secure. Fast. Reliable.
-                    </p>
+                    <div class="badge">🔒 Undetected & Premium</div>
+                    <h1 class="hero-title">Next-Gen HWID Spoofer</h1>
+                    <p class="hero-subtitle">Experience the most advanced spoofer with military-grade encryption, zero detection rates, and lightning-fast performance across all major titles.</p>
                     <div class="cta-buttons">
-                        <a
-                            href="https://discord.gg/SXp5HwzwYT"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-primary"
-                        >Join Discord</a>
-                        <a href="#purchase" class="btn-secondary">Purchase Now</a>
+                        <a href="#" class="btn-primary nav-link" data-section="purchase">Start Dominating</a>
+                        <a href="https://discord.gg/SXp5HwzwYT" target="_blank" rel="noopener noreferrer" class="btn-primary">Join Discord</a>
+
                     </div>
                 </div>
-                <div>
-                    <!-- You can place a hero image or animation here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="section">
-            <h2 class="section-title">Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Advanced Spoofing</h3>
-                    <p class="feature-description">
-                        Uses cutting-edge technology to spoof hardware IDs, keeping you untraceable.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Fast & Lightweight</h3>
-                    <p class="feature-description">
-                        Minimal resource usage ensures smooth performance while spoofing in real-time.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3 class="feature-title">Bypass All Bans</h3>
-                    <p class="feature-description">
-                        Supports bypassing bans from all major anti-cheat systems and games.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">User Friendly</h3>
-                    <p class="feature-description">
-                        Simple UI and easy setup lets you spoof with just a few clicks.
-                    </p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Undetectable</h3>
+                        <p class="feature-description">Advanced kernel-level protection with real-time signature updates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Lightning Fast</h3>
+                        <p class="feature-description">Instant spoofing with zero performance impact on your system.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧹</div>
+                        <h3 class="feature-title">Advanced Cleaning</h3>
+                        <p class="feature-description">Deep system cleaning to remove all traces and identifiers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="feature-title">Easy Spoofing</h3>
+                        <p class="feature-description">One-click spoof with automated configuration system.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Purchase Section -->
-        <section id="purchase" class="section">
+        <section id="purchase" class="section hidden">
             <div class="purchase-content">
-                <h2 class="section-title">Choose Your Plan</h2>
-                <p class="section-subtitle">
-                    Get the best protection for your gaming account with our affordable plans.
-                </p>
+                <h2 class="section-title">Choose Your Arsenal</h2>
+                <p class="section-subtitle">Premium applications tailored for every skill level. From beginners to elite competitors, find the perfect package to dominate your battlefield.</p>
+                
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <div class="plan-badge">Basic</div>
-                        <div class="plan-name">1 Month</div>
-                        <div class="plan-description">
-                            Perfect for casual users who want to stay protected.
-                        </div>
-                        <div class="plan-price">€10</div>
-                        <div class="plan-period">Per Month</div>
+                        <div class="plan-badge">SPOOFER</div>
+                        <h3 class="plan-name">One-Time Spoof</h3>
+                        <p class="plan-description">Perfect for single use when you need it most</p>
+                        <div class="plan-price">€9.99</div>
+                        <div class="plan-period">One Time Use</div>
                         <ul class="plan-features">
-                            <li>Full HWID Spoofing</li>
-                            <li>Basic Support</li>
-                            <li>Free Updates</li>
+                            <li>Single Hardware ID Spoof</li>
+                            <li>Advanced System Cleaning</li>
+                            <li>Registry Cleaner</li>
+                            <li>Temp File Removal</li>
+                            <li>Hardware Serial Reset</li>
+                            <li>Component ID Changes</li>
+                            <li>Instant Activation</li>
+                            <li>24/7 Support</li>
                         </ul>
-                        <a href="#" class="buy-btn">Buy Now</a>
+                            <button
+                            type="button"
+                            class="sellauth-button"
+                            onclick="window.sellAuthEmbed.checkout(this, { 
+                                cart: [{ productId: 380221, variantId: 538028, quantity: 1 }],
+                                shopId: 162926,
+                                modal: true
+                            })"
+                            >
+                            <span>Buy Now</span>
+                            <!-- SVGs omitted for brevity -->
+                            </button>
                     </div>
+
                     <div class="pricing-card popular">
-                        <div class="plan-badge">Premium</div>
-                        <div class="plan-name">1 Year</div>
-                        <div class="plan-description">
-                            Best value with full features and priority support.
-                        </div>
-                        <div class="plan-price">€30</div>
-                        <div class="plan-period">Per Year</div>
+                        <div class="plan-badge">SPOOFER</div>
+                        <h3 class="plan-name">Lifetime Unlimited</h3>
+                        <p class="plan-description">Unlimited spoofs for life - best value</p>
+                        <div class="plan-price">€24.99</div>
+                        <div class="plan-period">Lifetime Access</div>
                         <ul class="plan-features">
-                            <li>All Basic Features</li>
-                            <li>Priority Support</li>
-                            <li>Lifetime Updates</li>
-                            <li>Early Access to New Features</li>
+                            <li>Unlimited Hardware ID Spoofs</li>
+                            <li>Advanced System Cleaning</li>
+                            <li>Registry Cleaner</li>
+                            <li>Temp File Removal</li>
+                            <li>Hardware Serial Reset</li>
+                            <li>Component ID Changes</li>
+                            <li>All Future Updates</li>
+                            <li>VIP Priority Support</li>
+                            <li>Exclusive Features</li>
+                            <li>Discord Access</li>
                         </ul>
-                        <a href="#" class="buy-btn">Buy Now</a>
+                        <a href="#" class="btn-primary">Get Lifetime</a>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
-
-    <footer>
-        &copy; 2025 SecureWare. All rights reserved.
-    </footer>
+    </div>
 
     <script>
-        // Simple nav active link switch on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        // Animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 80;
-                if (pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navigation functionality
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
 
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(nl => nl.classList.remove('active'));
+                    // Add active class to clicked link
                     link.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => section.classList.add('hidden'));
+                    
+                    // Show target section
+                    const targetSection = link.getAttribute('data-section');
+                    document.getElementById(targetSection).classList.remove('hidden');
+                });
+            });
+        }
+
+        // Smooth scrolling navbar effect
+        function initNavbarEffect() {
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+                    navbar.style.borderBottom = '1px solid rgba(0, 144, 255, 0.3)';
+                } else {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                    navbar.style.borderBottom = '1px solid rgba(0, 144, 255, 0.2)';
                 }
             });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initNavigation();
+            initNavbarEffect();
         });
     </script>
 </body>
